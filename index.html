@@ -3,287 +3,647 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hikanu - GLP-1メディカルダイエット</title>
+    <title>Hikanu - GLP-1を日本へ</title>
+    <meta name="description" content="GLP-1メディカルダイエット。クリニック不要、オンライン診療で自宅から始められます。FDA承認薬、米国医師監修。">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Noto Sans JP', sans-serif; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
+                        accent: {
+                            400: '#4ade80',
                             500: '#22c55e',
                             600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
                         }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans JP', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+
+        /* Gradient animation */
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .animate-gradient {
+            background: linear-gradient(-45deg, #eff6ff, #dbeafe, #bfdbfe, #eff6ff);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        /* Fade in on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button hover effect */
+        .btn-primary {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.5);
+        }
+
+        /* FAQ accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        /* Sticky mobile CTA */
+        .sticky-cta {
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body class="bg-white text-gray-900">
     <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center px-6 py-16 bg-gradient-to-b from-brand-50 to-white">
-        <div class="max-w-2xl mx-auto text-center">
+    <section class="min-h-screen flex flex-col justify-center px-6 py-16 animate-gradient relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
             <!-- Logo -->
-            <div class="mb-8">
+            <div class="mb-6">
                 <span class="text-3xl font-bold text-brand-700">Hikanu</span>
             </div>
 
+            <!-- Hero Image -->
+            <div class="mb-8">
+                <div class="mx-auto rounded-2xl shadow-xl max-w-2xl h-64 md:h-80 bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center">
+                    <div class="text-center text-brand-600">
+                        <svg class="w-16 h-16 mx-auto mb-2 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <p class="text-sm opacity-75">健康的な毎日へ</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Headline -->
-            <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-6">
-                ダイエットは<br class="md:hidden">意志の問題じゃない。<br>
-                <span class="text-brand-600">医療の問題です。</span>
+            <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">
+                GLP-1を日本へ。<br>
+                <span class="text-brand-600">クリニック不要。</span>
             </h1>
 
             <!-- Subheadline -->
-            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                GLP-1受容体作動薬による医療ダイエット。<br>
-                オンライン診療で、自宅から始められます。
+            <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto">
+                米国で話題のGLP-1メディカルダイエットを、<br class="hidden md:block">
+                オンライン診療で日本のご自宅から。
             </p>
 
-            <!-- Trust metrics -->
-            <div class="flex justify-center gap-8 mb-10 text-sm text-gray-500">
-                <div class="text-center">
-                    <div class="text-2xl font-bold text-gray-900">95%</div>
-                    <div>満足度</div>
+            <!-- Trust badges -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-10">
+                <div class="flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full shadow-sm">
+                    <svg class="w-5 h-5 text-accent-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-sm font-medium">FDA承認</span>
                 </div>
-                <div class="text-center">
-                    <div class="text-2xl font-bold text-gray-900">-15%</div>
-                    <div>平均減量</div>
+                <div class="flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full shadow-sm">
+                    <svg class="w-5 h-5 text-accent-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-sm font-medium">米国医師監修</span>
                 </div>
-                <div class="text-center">
-                    <div class="text-2xl font-bold text-gray-900">医師</div>
-                    <div>監修</div>
+                <div class="flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full shadow-sm">
+                    <svg class="w-5 h-5 text-accent-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-sm font-medium">HIPAA準拠</span>
                 </div>
             </div>
 
             <!-- CTA -->
-            <a href="#consultation" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-medium px-8 py-4 rounded-full text-lg transition-colors">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
+            <a href="#consultation" class="btn-primary inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-8 py-4 rounded-full text-lg">
                 無料相談を予約する
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
             </a>
 
-            <p class="mt-4 text-sm text-gray-400">初回カウンセリング無料・処方まで最短当日</p>
+            <p class="mt-4 text-sm text-gray-500">初回カウンセリング無料・最短当日処方</p>
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section class="px-6 py-16 bg-white">
-        <div class="max-w-2xl mx-auto">
-            <h2 class="text-2xl font-bold text-center mb-12">
-                なぜダイエットは<br class="md:hidden">失敗するのか？
-            </h2>
+    <!-- Social Proof Bar -->
+    <section class="bg-brand-700 text-white py-4">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="text-lg font-medium">
+                <span class="text-2xl font-bold">1,000人以上</span>が日本で利用中
+            </p>
+        </div>
+    </section>
 
-            <div class="space-y-6">
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
-                        <span class="text-red-600">✕</span>
+    <!-- How It Works -->
+    <section class="px-6 py-20 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 fade-in">ご利用の流れ</h2>
+            <p class="text-center text-gray-600 mb-12 fade-in">3ステップで簡単スタート</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center fade-in">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-brand-100 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
                     </div>
-                    <div>
-                        <h3 class="font-medium mb-1">空腹ホルモンが増加</h3>
-                        <p class="text-gray-600 text-sm">体重が減ると、グレリン（空腹ホルモン）が増加し、食欲が強くなります。</p>
+                    <div class="w-10 h-10 mx-auto mb-4 rounded-full bg-brand-600 flex items-center justify-center text-white font-bold">1</div>
+                    <h3 class="font-semibold text-lg mb-2">無料オンライン相談</h3>
+                    <p class="text-gray-600 text-sm">LINEまたはWebから予約。<br>医師があなたの状況をヒアリング。</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center fade-in">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-brand-100 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <div class="w-10 h-10 mx-auto mb-4 rounded-full bg-brand-600 flex items-center justify-center text-white font-bold">2</div>
+                    <h3 class="font-semibold text-lg mb-2">診察・処方</h3>
+                    <p class="text-gray-600 text-sm">適応があれば、その場で処方。<br>最短当日に手続き完了。</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center fade-in">
+                    <div class="w-20 h-20 mx-auto mb-4 rounded-2xl bg-brand-100 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
+                        </svg>
+                    </div>
+                    <div class="w-10 h-10 mx-auto mb-4 rounded-full bg-brand-600 flex items-center justify-center text-white font-bold">3</div>
+                    <h3 class="font-semibold text-lg mb-2">ご自宅にお届け</h3>
+                    <p class="text-gray-600 text-sm">プライバシーに配慮した梱包で、<br>最短翌日にお届け。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Grid -->
+    <section class="px-6 py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 fade-in">Hikanuが選ばれる理由</h2>
+            <p class="text-center text-gray-600 mb-12 fade-in">医療の力で、無理なく健康的に</p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Benefit 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm fade-in">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">自然な食欲抑制</h3>
+                            <p class="text-gray-600 text-sm">GLP-1が脳の満腹中枢に作用。無理な我慢なく、少量で満足感を得られます。</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
-                        <span class="text-red-600">✕</span>
-                    </div>
-                    <div>
-                        <h3 class="font-medium mb-1">代謝が低下</h3>
-                        <p class="text-gray-600 text-sm">カロリー制限すると、体は省エネモードに入り、消費カロリーが減少します。</p>
+                <!-- Benefit 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm fade-in">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 rounded-xl bg-accent-100 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-7 h-7 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">臨床実証済みの効果</h3>
+                            <p class="text-gray-600 text-sm">大規模臨床試験で平均15-20%の体重減少が確認。科学的根拠に基づいた医療です。</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
-                        <span class="text-red-600">✕</span>
+                <!-- Benefit 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm fade-in">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">米国医師が監修</h3>
+                            <p class="text-gray-600 text-sm">経験豊富な米国認定医師がオンラインで診察。安心・安全のサポート体制。</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="font-medium mb-1">意志力には限界がある</h3>
-                        <p class="text-gray-600 text-sm">長期間の食事制限は、ストレスホルモンを増加させ、リバウンドを招きます。</p>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm fade-in">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 rounded-xl bg-accent-100 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-7 h-7 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-2">完全プライバシー保護</h3>
+                            <p class="text-gray-600 text-sm">クリニック通院不要。目立たない梱包で自宅に届き、誰にも知られません。</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Solution Section -->
-    <section class="px-6 py-16 bg-brand-50">
-        <div class="max-w-2xl mx-auto">
-            <h2 class="text-2xl font-bold text-center mb-4">
-                GLP-1で<br class="md:hidden">体の仕組みから変える
-            </h2>
-            <p class="text-center text-gray-600 mb-12">
-                医療の力で、自然に食欲をコントロール
-            </p>
-
-            <div class="space-y-6">
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-brand-600 flex items-center justify-center flex-shrink-0">
-                        <span class="text-white">✓</span>
-                    </div>
-                    <div>
-                        <h3 class="font-medium mb-1">食欲を自然に抑制</h3>
-                        <p class="text-gray-600 text-sm">GLP-1は脳の満腹中枢に作用し、少量で満足感を得られるようになります。</p>
+    <!-- Product Section -->
+    <section class="px-6 py-20 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="rounded-2xl shadow-lg w-full h-64 md:h-80 bg-gradient-to-br from-brand-50 to-brand-100 flex items-center justify-center">
+                        <div class="text-center">
+                            <svg class="w-24 h-24 mx-auto text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                            </svg>
+                            <p class="text-brand-500 mt-2 font-medium">GLP-1注射ペン</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-brand-600 flex items-center justify-center flex-shrink-0">
-                        <span class="text-white">✓</span>
-                    </div>
-                    <div>
-                        <h3 class="font-medium mb-1">血糖値を安定化</h3>
-                        <p class="text-gray-600 text-sm">食後の血糖値スパイクを抑え、脂肪の蓄積を防ぎます。</p>
-                    </div>
-                </div>
-
-                <div class="flex gap-4 items-start">
-                    <div class="w-8 h-8 rounded-full bg-brand-600 flex items-center justify-center flex-shrink-0">
-                        <span class="text-white">✓</span>
-                    </div>
-                    <div>
-                        <h3 class="font-medium mb-1">臨床試験で実証</h3>
-                        <p class="text-gray-600 text-sm">大規模臨床試験で平均15-20%の体重減少が確認されています。</p>
-                    </div>
+                <div class="fade-in">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">週1回の簡単投与</h2>
+                    <p class="text-gray-600 mb-6">
+                        GLP-1受容体作動薬は、週に1回の自己注射で効果を発揮。細い針で痛みはほとんどなく、自宅で簡単に投与できます。
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700">週1回、同じ曜日に投与</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700">使い方は動画で丁寧にガイド</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-gray-700">質問はいつでもサポートに連絡可能</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section class="px-6 py-16 bg-white">
+    <section class="px-6 py-20 bg-brand-50">
         <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-2xl font-bold mb-4">料金</h2>
-            <p class="text-gray-600 mb-8">透明な価格設定、隠れた費用なし</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 fade-in">シンプルな料金プラン</h2>
+            <p class="text-gray-600 mb-10 fade-in">隠れた費用なし、すべて込みの月額料金</p>
 
-            <div class="bg-gray-50 rounded-2xl p-8 mb-6">
+            <div class="bg-white rounded-3xl p-8 shadow-lg fade-in">
+                <div class="inline-block bg-brand-100 text-brand-700 text-sm font-medium px-4 py-1 rounded-full mb-4">
+                    人気プラン
+                </div>
                 <div class="text-sm text-gray-500 mb-2">月額</div>
-                <div class="text-4xl font-bold mb-2">¥29,800<span class="text-lg font-normal text-gray-500">〜</span></div>
-                <div class="text-sm text-gray-500">（税込）</div>
+                <div class="text-5xl font-bold text-brand-700 mb-2">¥29,800</div>
+                <div class="text-sm text-gray-500 mb-6">（税込）</div>
 
-                <ul class="text-left mt-6 space-y-3 text-sm">
-                    <li class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                <ul class="text-left space-y-4 mb-8">
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                         </svg>
-                        オンライン診療・処方
+                        <span>オンライン診療・処方</span>
                     </li>
-                    <li class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                         </svg>
-                        GLP-1薬剤（週1回投与）
+                        <span>GLP-1薬剤（週1回投与）</span>
                     </li>
-                    <li class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                         </svg>
-                        医師によるフォローアップ
+                        <span>医師によるフォローアップ</span>
                     </li>
-                    <li class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                         </svg>
-                        送料無料
+                        <span>送料無料</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>いつでも解約可能</span>
                     </li>
                 </ul>
-            </div>
 
-            <p class="text-xs text-gray-400">※薬剤の種類・用量により価格が変動します</p>
+                <a href="#consultation" class="btn-primary block w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-4 rounded-full text-lg">
+                    無料相談を予約する
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="px-6 py-16 bg-gray-50">
+    <!-- Testimonials -->
+    <section class="px-6 py-20 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 fade-in">利用者の声</h2>
+            <p class="text-center text-gray-600 mb-12 fade-in">実際にHikanuを利用された方々の体験談</p>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 rounded-2xl p-6 fade-in">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-brand-200 flex items-center justify-center text-brand-700 font-bold text-lg">Y</div>
+                        <div>
+                            <div class="font-medium">Y.K さん</div>
+                            <div class="text-sm text-gray-500">30代・東京都</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        「今まで何度もダイエットに挑戦しては挫折の繰り返し。Hikanuを始めて2ヶ月で8kg減。食欲が自然と落ち着いて、無理なく続けられています。」
+                    </p>
+                    <div class="flex gap-1 mt-4 text-yellow-400">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 rounded-2xl p-6 fade-in">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent-200 flex items-center justify-center text-accent-700 font-bold text-lg">M</div>
+                        <div>
+                            <div class="font-medium">M.S さん</div>
+                            <div class="text-sm text-gray-500">40代・大阪府</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        「仕事が忙しくクリニックに通う時間がなかったのですが、オンラインで完結するのが本当に助かります。3ヶ月で10kg減、健康診断の数値も改善しました。」
+                    </p>
+                    <div class="flex gap-1 mt-4 text-yellow-400">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 rounded-2xl p-6 fade-in">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-brand-200 flex items-center justify-center text-brand-700 font-bold text-lg">T</div>
+                        <div>
+                            <div class="font-medium">T.N さん</div>
+                            <div class="text-sm text-gray-500">50代・神奈川県</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        「年齢とともに代謝が落ち、何をしても痩せなくなっていました。Hikanuのおかげで半年で12kg減。服のサイズも2つダウンして、自信が戻りました。」
+                    </p>
+                    <div class="flex gap-1 mt-4 text-yellow-400">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center text-xs text-gray-400 mt-8">※個人の感想です。効果には個人差があります。</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="px-6 py-20 bg-gray-50">
         <div class="max-w-2xl mx-auto">
-            <h2 class="text-2xl font-bold text-center mb-12">ご利用の流れ</h2>
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-4 fade-in">よくある質問</h2>
+            <p class="text-center text-gray-600 mb-12 fade-in">ご不明な点はお気軽にお問い合わせください</p>
 
-            <div class="space-y-8">
-                <div class="flex gap-4">
-                    <div class="w-10 h-10 rounded-full bg-brand-600 flex items-center justify-center flex-shrink-0 text-white font-bold">1</div>
-                    <div>
-                        <h3 class="font-medium mb-1">無料相談を予約</h3>
-                        <p class="text-gray-600 text-sm">LINEまたはWebから、ご都合の良い日時をお選びください。</p>
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="faq-item bg-white rounded-xl shadow-sm fade-in">
+                    <button class="faq-question w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+                        <span class="font-medium">GLP-1とは何ですか？</span>
+                        <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600 text-sm">GLP-1（グルカゴン様ペプチド-1）は、体内で自然に分泌されるホルモンです。GLP-1受容体作動薬は、このホルモンの働きを模倣し、食欲を抑制、血糖値を安定させ、体重減少をサポートします。セマグルチド（オゼンピック、ウゴービ）やチルゼパチド（マンジャロ）などがFDAに承認されています。</p>
                     </div>
                 </div>
 
-                <div class="flex gap-4">
-                    <div class="w-10 h-10 rounded-full bg-brand-600 flex items-center justify-center flex-shrink-0 text-white font-bold">2</div>
-                    <div>
-                        <h3 class="font-medium mb-1">オンライン診療</h3>
-                        <p class="text-gray-600 text-sm">医師がビデオ通話で問診。適応があれば処方を行います。</p>
+                <!-- FAQ 2 -->
+                <div class="faq-item bg-white rounded-xl shadow-sm fade-in">
+                    <button class="faq-question w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+                        <span class="font-medium">副作用はありますか？</span>
+                        <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600 text-sm">最も一般的な副作用は、吐き気、下痢、便秘などの消化器症状です。多くの場合、低用量から始めて徐々に増量することで軽減されます。重篤な副作用はまれですが、医師が定期的にフォローアップを行い、安全に使用できるようサポートします。</p>
                     </div>
                 </div>
 
-                <div class="flex gap-4">
-                    <div class="w-10 h-10 rounded-full bg-brand-600 flex items-center justify-center flex-shrink-0 text-white font-bold">3</div>
-                    <div>
-                        <h3 class="font-medium mb-1">ご自宅にお届け</h3>
-                        <p class="text-gray-600 text-sm">最短翌日、プライバシーに配慮した梱包でお届けします。</p>
+                <!-- FAQ 3 -->
+                <div class="faq-item bg-white rounded-xl shadow-sm fade-in">
+                    <button class="faq-question w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+                        <span class="font-medium">どのくらいで効果が出ますか？</span>
+                        <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600 text-sm">多くの方が2〜4週間で食欲の変化を実感します。体重減少は個人差がありますが、臨床試験では12〜16週間で有意な体重減少が確認されています。継続的な使用により、6ヶ月〜1年で平均15〜20%の体重減少が期待できます。</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item bg-white rounded-xl shadow-sm fade-in">
+                    <button class="faq-question w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+                        <span class="font-medium">日本の保険は適用されますか？</span>
+                        <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600 text-sm">Hikanuのサービスは自由診療となり、日本の健康保険は適用されません。ただし、月額¥29,800（税込）で薬剤費・診療費・送料すべて込みの明瞭な料金体系です。クリニック通院の交通費や時間を考慮すると、コストパフォーマンスに優れています。</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item bg-white rounded-xl shadow-sm fade-in">
+                    <button class="faq-question w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+                        <span class="font-medium">解約はいつでもできますか？</span>
+                        <svg class="faq-icon w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600 text-sm">はい、いつでも解約可能です。最低契約期間や解約手数料はありません。次回の配送予定日の7日前までにご連絡いただければ、次回分からの配送を停止いたします。</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="consultation" class="px-6 py-16 bg-brand-700 text-white">
+    <!-- Final CTA Section -->
+    <section id="consultation" class="px-6 py-20 bg-brand-700 text-white">
         <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-2xl font-bold mb-4">まずは無料相談から</h2>
-            <p class="text-brand-100 mb-8">
-                医師があなたの状況をヒアリングし、<br>
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 fade-in">今すぐ始めましょう</h2>
+            <p class="text-brand-100 mb-8 fade-in">
+                無料カウンセリングで、あなたに<br class="md:hidden">
                 最適なプランをご提案します。
             </p>
 
             <!-- LINE CTA -->
-            <a href="https://line.me/R/" class="inline-flex items-center gap-3 bg-[#06C755] hover:bg-[#05b34c] text-white font-medium px-8 py-4 rounded-full text-lg transition-colors mb-4">
+            <a href="https://line.me/R/" class="inline-flex items-center gap-3 bg-[#06C755] hover:bg-[#05b34c] text-white font-semibold px-8 py-4 rounded-full text-lg transition-all hover:scale-105 mb-4 fade-in">
                 <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
                 </svg>
                 LINEで無料相談
             </a>
 
-            <p class="text-sm text-brand-200">または</p>
+            <p class="text-sm text-brand-200 mb-6 fade-in">または</p>
 
             <!-- Email form -->
-            <form class="mt-4 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto fade-in">
                 <input
                     type="email"
                     placeholder="メールアドレス"
-                    class="flex-1 px-4 py-3 rounded-full text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-300"
+                    class="flex-1 px-5 py-4 rounded-full text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-300"
+                    required
                 >
-                <button type="submit" class="bg-white text-brand-700 font-medium px-6 py-3 rounded-full hover:bg-brand-50 transition-colors">
+                <button type="submit" class="bg-white text-brand-700 font-semibold px-8 py-4 rounded-full hover:bg-brand-50 transition-colors">
                     送信
                 </button>
             </form>
+
+            <p class="mt-6 text-xs text-brand-200 fade-in">個人情報は厳重に管理し、第三者には提供しません。</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="px-6 py-8 bg-gray-900 text-gray-400 text-sm">
-        <div class="max-w-2xl mx-auto text-center">
-            <p class="mb-4">Hikanu メディカルダイエット</p>
-            <p class="text-xs">
-                ※GLP-1受容体作動薬は、医師の診断・処方が必要な医薬品です。<br>
-                全ての方に効果を保証するものではありません。
-            </p>
-            <p class="mt-4 text-xs text-gray-600">&copy; 2026 Hikanu. All rights reserved.</p>
+    <footer class="px-6 py-10 bg-gray-900 text-gray-400 text-sm">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+                <span class="text-2xl font-bold text-white">Hikanu</span>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">利用規約</a>
+                    <a href="#" class="hover:text-white transition-colors">プライバシーポリシー</a>
+                    <a href="#" class="hover:text-white transition-colors">特定商取引法</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 text-center">
+                <p class="text-xs text-gray-500 mb-4">
+                    ※GLP-1受容体作動薬は、医師の診断・処方が必要な医薬品です。全ての方に効果を保証するものではありません。<br>
+                    ※当サービスは米国の医師により監修されています。日本国内での医療行為ではありません。
+                </p>
+                <p class="text-xs text-gray-600">&copy; 2026 Hikanu. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-cta fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 md:hidden z-50">
+        <a href="#consultation" class="btn-primary block w-full bg-brand-600 text-white font-semibold py-3 rounded-full text-center">
+            無料相談を予約する
+        </a>
+    </div>
+
+    <script>
+        // FAQ accordion
+        function toggleFaq(button) {
+            const item = button.closest('.faq-item');
+            item.classList.toggle('active');
+        }
+
+        // Fade in on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Sticky mobile CTA
+        const stickyCta = document.querySelector('.sticky-cta');
+        const heroSection = document.querySelector('section');
+
+        const stickyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    stickyCta.classList.add('visible');
+                } else {
+                    stickyCta.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0 });
+
+        stickyObserver.observe(heroSection);
+    </script>
 </body>
 </html>
