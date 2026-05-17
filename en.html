@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hikanu | GLP-1 weight loss medication, delivered to your home.</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A 5-minute online consultation, and FDA/PMDA-approved GLP-1 weight loss medication is shipped to your door. No clinic visits. Reviewed by U.S. physicians. ¥29,800/month (tax included).">
+  <meta property="og:title" content="Hikanu | GLP-1 weight loss medication, delivered to your home.">
+  <meta property="og:description" content="A 5-minute online consultation, and FDA-approved weight loss medication is shipped to your door.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Noto Sans JP"', 'system-ui', 'sans-serif'] },
+          colors: {
+            brand: {
+              50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',
+              500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', system-ui, sans-serif; }
+    @keyframes gradientShift {
+      0%,100% { background-position: 0% 50%; }
+      50%     { background-position: 100% 50%; }
+    }
+    @keyframes fadeInUp {
+      0%   { opacity: 0; transform: translateY(16px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up { animation: fadeInUp 0.7s ease-out both; }
+    .hero-gradient {
+      background: linear-gradient(120deg, #eff6ff 0%, #ffffff 45%, #ecfdf5 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 14s ease infinite;
+    }
+    .text-gradient {
+      background: linear-gradient(120deg, #2563eb 0%, #1d4ed8 50%, #22c55e 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+  <!-- Header -->
+  <header class="fixed top-3 md:top-5 inset-x-0 z-40 px-4">
+    <div class="max-w-5xl mx-auto bg-white/80 backdrop-blur border border-brand-100 rounded-xl shadow-sm">
+      <div class="flex items-center justify-between h-14 px-4">
+        <a href="#" class="flex items-center gap-2">
+          <span class="inline-flex w-8 h-8 rounded-lg bg-gradient-to-br from-brand-600 to-brand-700 text-white items-center justify-center font-bold text-sm">ヒ</span>
+          <span class="font-bold text-slate-900 tracking-tight">Hikanu</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm text-slate-600">
+          <a href="#how" class="hover:text-brand-600 transition">How it works</a>
+          <a href="#benefits" class="hover:text-brand-600 transition">Benefits</a>
+          <a href="#pricing" class="hover:text-brand-600 transition">Pricing</a>
+          <a href="#faq" class="hover:text-brand-600 transition">FAQ</a>
+        </nav>
+        <a href="#cta" class="inline-flex items-center px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold shadow-sm transition">Free consult</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. Hero -->
+    <section class="hero-gradient pt-32 md:pt-40 pb-16 md:pb-24">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div class="text-center lg:text-left animate-fade-in-up">
+            <h1 class="font-bold text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight text-slate-900 mb-6">
+              <span class="text-gradient">GLP-1 weight loss</span><br class="hidden md:inline">
+              delivered to your door.<br>
+              <span class="text-slate-700 text-3xl md:text-4xl lg:text-5xl font-semibold">No clinic visits.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
+              A 5-minute online consultation, and FDA-approved<br class="hidden sm:inline">
+              weight loss medication is shipped to your home.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8">
+              <a href="#cta" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-gradient-to-br from-brand-600 to-brand-700 hover:from-brand-700 hover:to-brand-800 text-white font-semibold shadow-lg shadow-brand-600/20 transition hover:scale-[1.02]">
+                Book a free consultation
+              </a>
+              <a href="#how" class="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-white border border-slate-200 text-slate-700 font-semibold hover:border-brand-300 hover:text-brand-700 transition">
+                See how it works
+              </a>
+            </div>
+            <!-- Trust badges (SPEC: FDA・PMDA-approved | U.S. physician-reviewed | APPI compliant) -->
+            <div class="flex flex-wrap gap-2.5 justify-center lg:justify-start text-xs md:text-sm">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-brand-100 rounded-full text-slate-700 shadow-sm">
+                <svg class="w-4 h-4 text-brand-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1.5a8.5 8.5 0 100 17 8.5 8.5 0 000-17zm3.78 6.97a.75.75 0 00-1.06-1.06L9 11.13 7.28 9.41a.75.75 0 10-1.06 1.06l2.25 2.25a.75.75 0 001.06 0l4.25-4.25z" clip-rule="evenodd"/></svg>
+                FDA・PMDA-approved
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-brand-100 rounded-full text-slate-700 shadow-sm">
+                <svg class="w-4 h-4 text-brand-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a4 4 0 100 8 4 4 0 000-8zM4 16a6 6 0 1112 0v1H4v-1z"/></svg>
+                U.S. physician-reviewed
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-brand-100 rounded-full text-slate-700 shadow-sm">
+                <svg class="w-4 h-4 text-brand-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1l7 3v6c0 4.5-3 8.5-7 9-4-.5-7-4.5-7-9V4l7-3z" clip-rule="evenodd"/></svg>
+                APPI privacy compliant
+              </span>
+            </div>
+          </div>
+          <div class="relative animate-fade-in-up">
+            <div class="absolute -inset-4 bg-gradient-to-br from-brand-200/40 to-green-200/40 rounded-3xl blur-2xl"></div>
+            <div class="relative rounded-2xl shadow-2xl shadow-brand-900/10 overflow-hidden bg-gradient-to-br from-brand-50 via-white to-green-50 aspect-[4/3]">
+              <svg viewBox="0 0 600 450" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-label="Online consultation and home delivery illustration">
+                <defs>
+                  <linearGradient id="heroBg" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#eff6ff"/>
+                    <stop offset="100%" stop-color="#dcfce7"/>
+                  </linearGradient>
+                  <linearGradient id="phoneGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#ffffff"/>
+                    <stop offset="100%" stop-color="#f1f5f9"/>
+                  </linearGradient>
+                  <linearGradient id="screenGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#2563eb"/>
+                    <stop offset="100%" stop-color="#1d4ed8"/>
+                  </linearGradient>
+                  <linearGradient id="boxGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#22c55e"/>
+                    <stop offset="100%" stop-color="#16a34a"/>
+                  </linearGradient>
+                </defs>
+                <rect width="600" height="450" fill="url(#heroBg)"/>
+                <circle cx="510" cy="80" r="120" fill="#bfdbfe" opacity="0.4"/>
+                <circle cx="80" cy="380" r="90" fill="#bbf7d0" opacity="0.5"/>
+                <circle cx="120" cy="100" r="6" fill="#22c55e" opacity="0.6"/>
+                <circle cx="500" cy="370" r="8" fill="#2563eb" opacity="0.5"/>
+                <circle cx="60" cy="220" r="4" fill="#2563eb" opacity="0.4"/>
+                <g transform="translate(180 60)">
+                  <rect x="0" y="0" width="180" height="340" rx="28" fill="url(#phoneGrad)" stroke="#cbd5e1" stroke-width="2"/>
+                  <rect x="12" y="14" width="156" height="312" rx="18" fill="url(#screenGrad)"/>
+                  <circle cx="90" cy="80" r="32" fill="#ffffff" opacity="0.95"/>
+                  <path d="M78 80 l8 8 l16 -18" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  <rect x="32" y="130" width="116" height="10" rx="5" fill="#ffffff" opacity="0.85"/>
+                  <rect x="44" y="150" width="92" height="6" rx="3" fill="#ffffff" opacity="0.55"/>
+                  <rect x="32" y="180" width="116" height="56" rx="12" fill="#ffffff" opacity="0.15"/>
+                  <rect x="44" y="196" width="50" height="6" rx="3" fill="#ffffff" opacity="0.7"/>
+                  <rect x="44" y="210" width="80" height="6" rx="3" fill="#ffffff" opacity="0.45"/>
+                  <rect x="44" y="222" width="64" height="6" rx="3" fill="#ffffff" opacity="0.45"/>
+                  <rect x="32" y="252" width="116" height="36" rx="10" fill="#22c55e"/>
+                  <rect x="60" y="266" width="60" height="8" rx="4" fill="#ffffff"/>
+                  <circle cx="90" cy="308" r="6" fill="#ffffff" opacity="0.5"/>
+                </g>
+                <g transform="translate(380 200)">
+                  <rect x="0" y="0" width="150" height="120" rx="10" fill="url(#boxGrad)"/>
+                  <rect x="0" y="56" width="150" height="12" fill="#ffffff" opacity="0.35"/>
+                  <rect x="69" y="0" width="12" height="120" fill="#ffffff" opacity="0.35"/>
+                  <circle cx="75" cy="62" r="10" fill="#ffffff" opacity="0.85"/>
+                  <text x="75" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#16a34a">Rx</text>
+                </g>
+                <g transform="translate(60 260)" opacity="0.85">
+                  <circle cx="40" cy="40" r="38" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+                  <path d="M30 38 q10 -14 20 0 q-10 14 -20 0 z" fill="#22c55e"/>
+                  <path d="M40 22 l0 8 M40 50 l0 8" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Social Proof Bar -->
+    <section class="bg-brand-50/70 border-y border-brand-100 py-6">
+      <div class="max-w-5xl mx-auto px-4 text-center">
+        <p class="text-sm md:text-base text-slate-700 font-medium flex items-center justify-center gap-2 flex-wrap">
+          <svg class="w-5 h-5 text-brand-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>GLP-1 treatment is used by <span class="font-bold text-brand-700">millions worldwide</span>. Now expanding in Japan.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. How It Works -->
+    <section id="how" class="py-20 md:py-28">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">How it works</h2>
+          <p class="text-slate-600">Just 3 steps until your medication arrives at home.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+          <div class="reveal relative bg-white border border-brand-100 rounded-2xl p-8 hover:shadow-xl hover:shadow-brand-100/40 hover:-translate-y-1 transition-all duration-300">
+            <div class="absolute -top-4 left-8 inline-flex items-center justify-center w-9 h-9 rounded-full bg-brand-600 text-white text-sm font-bold shadow-md">1</div>
+            <div class="w-14 h-14 mb-5 rounded-xl bg-brand-50 flex items-center justify-center">
+              <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Online consultation</h3>
+            <p class="text-slate-600 leading-relaxed">A 5-minute video call with a physician. Even busy people can finish it in a spare moment.</p>
+          </div>
+          <div class="reveal relative bg-white border border-brand-100 rounded-2xl p-8 hover:shadow-xl hover:shadow-brand-100/40 hover:-translate-y-1 transition-all duration-300">
+            <div class="absolute -top-4 left-8 inline-flex items-center justify-center w-9 h-9 rounded-full bg-brand-600 text-white text-sm font-bold shadow-md">2</div>
+            <div class="w-14 h-14 mb-5 rounded-xl bg-brand-50 flex items-center justify-center">
+              <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Prescription issued</h3>
+            <p class="text-slate-600 leading-relaxed">A licensed physician reviews your individual situation and determines the right prescription.</p>
+          </div>
+          <div class="reveal relative bg-white border border-brand-100 rounded-2xl p-8 hover:shadow-xl hover:shadow-brand-100/40 hover:-translate-y-1 transition-all duration-300">
+            <div class="absolute -top-4 left-8 inline-flex items-center justify-center w-9 h-9 rounded-full bg-green-500 text-white text-sm font-bold shadow-md">3</div>
+            <div class="w-14 h-14 mb-5 rounded-xl bg-green-50 flex items-center justify-center">
+              <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Delivered to your home</h3>
+            <p class="text-slate-600 leading-relaxed">Discreet, privacy-conscious packaging shipped directly to your door.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Benefits Grid -->
+    <section id="benefits" class="bg-slate-50/60 py-20 md:py-28 border-y border-slate-100">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Why Hikanu</h2>
+          <p class="text-slate-600">A new approach to weight loss that fits into a busy life.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="reveal bg-white rounded-2xl p-6 border border-brand-100 text-center hover:border-brand-300 hover:-translate-y-0.5 transition">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-brand-50 flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <h3 class="font-bold mb-1.5">No clinic needed</h3>
+            <p class="text-sm text-slate-600">Skip the commute</p>
+          </div>
+          <div class="reveal bg-white rounded-2xl p-6 border border-brand-100 text-center hover:border-brand-300 hover:-translate-y-0.5 transition">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-brand-50 flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 class="font-bold mb-1.5">Same-day prescription</h3>
+            <p class="text-sm text-slate-600">Fast turnaround</p>
+          </div>
+          <div class="reveal bg-white rounded-2xl p-6 border border-brand-100 text-center hover:border-brand-300 hover:-translate-y-0.5 transition">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-green-50 flex items-center justify-center">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="font-bold mb-1.5">FDA-approved drugs</h3>
+            <p class="text-sm text-slate-600">Safety-validated</p>
+          </div>
+          <div class="reveal bg-white rounded-2xl p-6 border border-brand-100 text-center hover:border-brand-300 hover:-translate-y-0.5 transition">
+            <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-brand-50 flex items-center justify-center">
+              <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/></svg>
+            </div>
+            <h3 class="font-bold mb-1.5">Home delivery</h3>
+            <p class="text-sm text-slate-600">Privacy protected</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Pricing -->
+    <section id="pricing" class="py-20 md:py-28">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Simple pricing</h2>
+          <p class="text-slate-600">No hidden fees. Cancel anytime.</p>
+        </div>
+        <div class="max-w-md mx-auto reveal">
+          <div class="relative bg-white border border-brand-200 rounded-3xl p-8 md:p-10 shadow-xl shadow-brand-100/40">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center px-3 py-1 bg-gradient-to-br from-brand-600 to-brand-700 text-white text-xs font-semibold rounded-full shadow-md">
+              Most popular
+            </div>
+            <div class="text-center mb-6">
+              <p class="text-sm text-slate-500 mb-2">Monthly plan</p>
+              <div class="flex items-baseline justify-center gap-1">
+                <span class="text-5xl md:text-6xl font-bold tracking-tight text-slate-900">¥29,800</span>
+              </div>
+              <p class="text-sm text-slate-500 mt-1">/month (tax included)</p>
+            </div>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span class="text-slate-700">Online consultation</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span class="text-slate-700">Prescription</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                <span class="text-slate-700">Ongoing support</span>
+              </li>
+            </ul>
+            <a href="#cta" class="block w-full text-center px-6 py-3.5 rounded-xl bg-gradient-to-br from-brand-600 to-brand-700 hover:from-brand-700 hover:to-brand-800 text-white font-semibold shadow-lg shadow-brand-600/20 transition">Start now</a>
+            <p class="text-xs text-slate-500 text-center mt-4">*Medication cost billed separately</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Testimonials -->
+    <section class="bg-slate-50/60 py-20 md:py-28 border-y border-slate-100">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">What our users say</h2>
+          <p class="text-slate-600">Stories from people who use Hikanu.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <figure class="reveal bg-white rounded-2xl p-6 border border-brand-100 shadow-sm">
+            <svg class="w-7 h-7 text-brand-200 mb-3" fill="currentColor" viewBox="0 0 24 24"><path d="M7.17 6C4.99 6 3.5 7.74 3.5 10c0 2.27 1.7 4 3.67 4 .47 0 .92-.1 1.33-.27-.2 1.9-1.16 3.37-2.5 4.27l1 1.5c2.6-1.6 4.5-4.4 4.5-7.5V8c0-1.1-.9-2-2-2H7.17zm10 0c-2.18 0-3.67 1.74-3.67 4 0 2.27 1.7 4 3.67 4 .47 0 .92-.1 1.33-.27-.2 1.9-1.16 3.37-2.5 4.27l1 1.5c2.6-1.6 4.5-4.4 4.5-7.5V8c0-1.1-.9-2-2-2h-2.33z"/></svg>
+            <blockquote class="text-slate-700 mb-5 leading-relaxed">"I lost 8kg in 3 months. Not having to go to a clinic is genuinely a relief."</blockquote>
+            <figcaption class="flex items-center gap-3 pt-4 border-t border-slate-100">
+              <div aria-hidden="true" class="w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold bg-gradient-to-br from-brand-500 to-brand-700">A</div>
+              <div>
+                <div class="font-semibold text-slate-900">A.S.</div>
+                <div class="text-sm text-slate-500">Age 34</div>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="reveal bg-white rounded-2xl p-6 border border-brand-100 shadow-sm">
+            <svg class="w-7 h-7 text-brand-200 mb-3" fill="currentColor" viewBox="0 0 24 24"><path d="M7.17 6C4.99 6 3.5 7.74 3.5 10c0 2.27 1.7 4 3.67 4 .47 0 .92-.1 1.33-.27-.2 1.9-1.16 3.37-2.5 4.27l1 1.5c2.6-1.6 4.5-4.4 4.5-7.5V8c0-1.1-.9-2-2-2H7.17zm10 0c-2.18 0-3.67 1.74-3.67 4 0 2.27 1.7 4 3.67 4 .47 0 .92-.1 1.33-.27-.2 1.9-1.16 3.37-2.5 4.27l1 1.5c2.6-1.6 4.5-4.4 4.5-7.5V8c0-1.1-.9-2-2-2h-2.33z"/></svg>
+            <blockquote class="text-slate-700 mb-5 leading-relaxed">"Even with a busy job, I can keep up with it because everything is online."</blockquote>
+            <figcaption class="flex items-center gap-3 pt-4 border-t border-slate-100">
+              <div aria-hidden="true" class="w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold bg-gradient-to-br from-green-500 to-green-700">M</div>
+              <div>
+                <div class="font-semibold text-slate-900">M.T.</div>
+                <div class="text-sm text-slate-500">Age 42</div>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="reveal bg-white rounded-2xl p-6 border border-brand-100 shadow-sm">
+            <svg class="w-7 h-7 text-brand-200 mb-3" fill="currentColor" viewBox="0 0 24 24"><path d="M7.17 6C4.99 6 3.5 7.74 3.5 10c0 2.27 1.7 4 3.67 4 .47 0 .92-.1 1.33-.27-.2 1.9-1.16 3.37-2.5 4.27l1 1.5c2.6-1.6 4.5-4.4 4.5-7.5V8c0-1.1-.9-2-2-2H7.17zm10 0c-2.18 0-3.67 1.74-3.67 4 0 2.27 1.7 4 3.67 4 .47 0 .92-.1 1.33-.27-.2 1.9-1.16 3.37-2.5 4.27l1 1.5c2.6-1.6 4.5-4.4 4.5-7.5V8c0-1.1-.9-2-2-2h-2.33z"/></svg>
+            <blockquote class="text-slate-700 mb-5 leading-relaxed">"The doctor was thorough and reassuring."</blockquote>
+            <figcaption class="flex items-center gap-3 pt-4 border-t border-slate-100">
+              <div aria-hidden="true" class="w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold bg-gradient-to-br from-brand-400 to-green-600">Y</div>
+              <div>
+                <div class="font-semibold text-slate-900">Y.K.</div>
+                <div class="text-sm text-slate-500">Age 38</div>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section id="faq" class="py-20 md:py-28">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-14 reveal">
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Frequently asked questions</h2>
+          <p class="text-slate-600">Answers to common questions.</p>
+        </div>
+        <div class="space-y-3" x-data="{ open: null }">
+          <template x-for="(item, idx) in [
+            { q: 'What is GLP-1?', a: 'GLP-1 is a naturally occurring hormone that helps suppress appetite and stabilize blood sugar. It is used in FDA-approved weight loss medications.' },
+            { q: 'Are there side effects?', a: 'Common side effects include nausea, diarrhea, and constipation. They usually subside over time. Your physician will adjust the dosage as needed.' },
+            { q: 'How quickly will I see results?', a: 'Individual results vary, but many users notice changes within 1–2 months. An average of 2–4 kg per month is typical.' },
+            { q: 'Is everyone eligible?', a: 'Eligibility generally applies to those with a BMI of 25 or above, or who need weight loss for health reasons. Your physician will confirm during the consultation.' },
+            { q: 'Can I cancel?', a: 'Yes, you can cancel anytime. There is no minimum contract period.' }
+          ]" :key="idx">
+            <div class="bg-white border border-brand-100 rounded-xl overflow-hidden reveal">
+              <button @click="open === idx ? open = null : open = idx" class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-brand-50/40 transition">
+                <span class="font-semibold text-slate-900" x-text="item.q"></span>
+                <svg class="w-5 h-5 text-brand-600 transition-transform flex-shrink-0" :class="open === idx ? 'rotate-180' : ''" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div x-show="open === idx" x-transition class="px-5 pb-5 text-slate-600 leading-relaxed" x-text="item.a"></div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Final CTA -->
+    <section id="cta" class="relative overflow-hidden py-20 md:py-28">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-600 via-brand-700 to-brand-800"></div>
+      <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 20%, white 1px, transparent 1px), radial-gradient(circle at 80% 80%, white 1px, transparent 1px); background-size: 60px 60px;"></div>
+      <div class="relative max-w-3xl mx-auto px-4 sm:px-6 text-center text-white">
+        <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-5">Start today</h2>
+        <p class="text-lg md:text-xl text-brand-100 mb-8">A free consultation will help us find the plan that suits you.</p>
+        <a href="#" class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-brand-700 font-bold shadow-xl hover:shadow-2xl hover:scale-[1.02] transition">
+          Book a free consultation
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <p class="text-sm text-brand-100/80 mt-6">Booking is free</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-300 py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-slate-800">
+        <div class="flex items-center gap-2">
+          <span class="inline-flex w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 text-white items-center justify-center font-bold text-sm">ヒ</span>
+          <span class="font-bold text-white">Hikanu</span>
+        </div>
+        <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <a href="#" class="hover:text-white transition">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition">Terms of Service</a>
+          <a href="#" class="hover:text-white transition">Specified Commercial Transactions Act</a>
+          <a href="#" class="hover:text-white transition">Contact</a>
+        </nav>
+      </div>
+      <div class="pt-8 space-y-4 text-xs text-slate-500 leading-relaxed">
+        <p>&copy; 2026 Hikanu / Studio Corsair LLC. All rights reserved.</p>
+        <p>Some images and testimonials on this site include content generated or modified using AI technology. People appearing in advertising may be models or actors.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile CTA -->
+  <div x-data="{ show: false }" x-init="window.addEventListener('scroll', () => { show = window.scrollY > 400 })"
+       x-show="show" x-transition.opacity
+       class="md:hidden fixed bottom-4 inset-x-4 z-50">
+    <a href="#cta" class="block w-full text-center px-6 py-3.5 rounded-xl bg-gradient-to-br from-brand-600 to-brand-700 text-white font-semibold shadow-2xl shadow-brand-900/40">
+      Book a free consultation
+    </a>
+  </div>
+
+  <!-- Scroll reveal -->
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
