@@ -28,6 +28,7 @@
     }
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="http://umami-aow8c8oo4wkgg4c88s8ggg40.66.42.75.11.sslip.io/script.js" data-website-id="e1e77529-0d02-4c47-952b-355446153f4c"></script>
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Noto Sans JP', system-ui, sans-serif; }
@@ -449,7 +450,7 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-    function openQuiz() { window.dispatchEvent(new CustomEvent('quizopen')); }
+    function openQuiz() { window.dispatchEvent(new CustomEvent('quizopen')); if (typeof umami !== 'undefined') umami.track('cta_click'); }
   </script>
 
   <!-- Intake Quiz Modal -->
@@ -462,10 +463,10 @@
     name: '',
     email: '',
     answers: {},
-    select(key, val) { this.answers[key] = val; this.step++; },
+    select(key, val) { this.answers[key] = val; if (typeof umami !== 'undefined') umami.track('quiz_step_' + this.step); this.step++; },
     async submit() {
       if (!this.name || !this.email) return;
-      this.submitting = true; this.error = false;
+      this.submitting = true; this.error = false; if (typeof umami !== 'undefined') umami.track('quiz_submit');
       try {
         const r = await fetch('https://formspree.io/f/mojblzlb', {
           method: 'POST',
@@ -507,7 +508,7 @@
           </div>
           <h2 class="text-2xl font-bold text-slate-900 mb-2">Tell us a little about yourself</h2>
           <p class="text-slate-500 text-sm mb-6">Takes 3 minutes. A physician will review your answers<br>and propose the right plan for you.</p>
-          <button @click="step = 1"
+          <button @click="step = 1; typeof umami !== 'undefined' && umami.track('quiz_start')"
                   class="w-full py-3.5 rounded-xl bg-gradient-to-br from-brand-600 to-brand-700 hover:from-brand-700 hover:to-brand-800 text-white font-semibold transition">
             Get started →
           </button>
