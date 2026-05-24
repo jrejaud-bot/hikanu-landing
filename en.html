@@ -467,7 +467,7 @@
       if (!this.name || !this.email) return;
       this.submitting = true; this.error = false;
       try {
-        const r = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        const r = await fetch('https://formspree.io/f/mojblzlb', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({ name: this.name, email: this.email, lang: 'en', ...this.answers })
